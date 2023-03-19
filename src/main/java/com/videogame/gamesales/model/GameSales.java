@@ -21,7 +21,7 @@ public class GameSales {
     private String name;
     private String platform;
     private Integer yearOfRelease;
-    private Integer genre;
+    private String genre;
     private String publisher;
     private Float naSales;
     private Float euSales;
@@ -29,9 +29,30 @@ public class GameSales {
     private Float otherSales;
     private Float globalSales;
     private Float criticScore;
+    private Float criticCount;
     private Float userScore;
     private Integer userCount;
     private String developer;
+    private String rating;
+
+    public GameSales(String name, String platform, Integer yearOfRelease, String genre, String publisher, Float naSales, Float euSales, Float jpSales, Float otherSales, Float globalSales, Float criticScore, Float criticCount, Float userScore, Integer userCount, String developer, String rating) {
+        this.name = name;
+        this.platform = platform;
+        this.yearOfRelease = yearOfRelease;
+        this.genre = genre;
+        this.publisher = publisher;
+        this.naSales = naSales;
+        this.euSales = euSales;
+        this.jpSales = jpSales;
+        this.otherSales = otherSales;
+        this.globalSales = globalSales;
+        this.criticScore = criticScore;
+        this.criticCount = criticCount;
+        this.userScore = userScore;
+        this.userCount = userCount;
+        this.developer = developer;
+        this.rating = rating;
+    }
 
     @Override
     public String toString() {
@@ -40,7 +61,7 @@ public class GameSales {
                 ", name='" + name + '\'' +
                 ", platform='" + platform + '\'' +
                 ", yearOfRelease=" + yearOfRelease +
-                ", genre=" + genre +
+                ", genre='" + genre + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", naSales=" + naSales +
                 ", euSales=" + euSales +
@@ -48,9 +69,11 @@ public class GameSales {
                 ", otherSales=" + otherSales +
                 ", globalSales=" + globalSales +
                 ", criticScore=" + criticScore +
+                ", criticCount=" + criticCount +
                 ", userScore=" + userScore +
                 ", userCount=" + userCount +
                 ", developer='" + developer + '\'' +
+                ", rating='" + rating + '\'' +
                 '}';
     }
 }

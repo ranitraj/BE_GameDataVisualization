@@ -22,7 +22,6 @@ public class FeatureListController {
 
     @GetMapping
     public ResponseEntity<?> getFeatureList() {
-        log.debug(FeatureListController.class.getSimpleName(), "Calling featureList API from Controller");
         return featureListService.getFeatureList();
     }
 
