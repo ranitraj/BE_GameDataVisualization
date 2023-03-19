@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,7 +26,12 @@ public class GameSalesService {
     }
 
     private List<GameSales> getAllGameSalesData() {
-        return gameSalesRepository.findAll();
+        try {
+            return gameSalesRepository.findAll();
+        } catch (Exception exception) {
+            log.error(TAG, exception.getMessage());
+            return new ArrayList<>();
+        }
     }
 
     public ResponseEntity<?> returnPieChart() {
@@ -33,7 +39,7 @@ public class GameSalesService {
         List<GameSales> gameSalesList = getAllGameSalesData();
 
         if (gameSalesList.size() == 0) {
-            responseBodyMessage = "No data retrieved data for pieChart API";
+            responseBodyMessage = "No data retrieved data for pieChart API: Either no Data or Bad Query Grammar";
             log.debug(TAG, responseBodyMessage);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseBodyMessage);
         } else {
