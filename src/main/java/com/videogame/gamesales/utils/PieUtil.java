@@ -3,6 +3,7 @@ package com.videogame.gamesales.utils;
 import com.videogame.gamesales.model.GameSales;
 import com.videogame.gamesales.model.response.Pie;
 import lombok.extern.slf4j.Slf4j;
+import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -12,7 +13,6 @@ import java.util.*;
 public class PieUtil {
     public static ResponseEntity<?> formatPieData(List<GameSales> gameSalesList) {
         String responseBodyMessage;
-        List<Pie> pieList = new ArrayList<>();
 
         try {
             HashMap<String, Integer> genreWiseSalesHashMap = getAllGenreWiseSales(gameSalesList);
@@ -24,7 +24,7 @@ public class PieUtil {
                     genresList,
                     "pie"
             );
-            return ResponseEntity.ok(pieList.add(pie));
+            return ResponseEntity.ok(List.of(pie));
         } catch (Exception exception) {
             responseBodyMessage = exception.getMessage();
             log.error(PieUtil.class.getSimpleName(), responseBodyMessage);
