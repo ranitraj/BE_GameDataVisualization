@@ -3,9 +3,11 @@ package com.videogame.gamesales.service;
 import com.videogame.gamesales.model.GameSales;
 import com.videogame.gamesales.model.response.Pie;
 import com.videogame.gamesales.repository.GameSalesRepository;
+import com.videogame.gamesales.utils.BarUtil;
 import com.videogame.gamesales.utils.PieUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,15 @@ public class GameSalesService {
         }
     }
 
+    private List<GameSales> getAllGameSaleOrderByUserCountDesc() {
+        try {
+            return gameSalesRepository.findAllByOrderByUserCountDesc();
+        } catch (Exception exception) {
+            log.error(TAG, exception.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
     public ResponseEntity<?> returnPieChart() {
         String responseBodyMessage;
         List<GameSales> gameSalesList = getAllGameSalesData();
@@ -45,6 +56,25 @@ public class GameSalesService {
         } else {
             try {
                 return PieUtil.formatPieData(gameSalesList);
+            } catch (Exception exception) {
+                responseBodyMessage = exception.getMessage();
+                log.error(TAG, responseBodyMessage);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBodyMessage);
+            }
+        }
+    }
+
+    public ResponseEntity<?> returnBarChart() {
+        String responseBodyMessage;
+        List<GameSales> gameSalesList = getAllGameSaleOrderByUserCountDesc();
+
+        if (gameSalesList.size() == 0) {
+            responseBodyMessage = "No data retrieved data for barChart API: Either no Data or Bad Query Grammar";
+            log.debug(TAG, responseBodyMessage);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseBodyMessage);
+        } else {
+            try {
+                return BarUtil.formatBarData(gameSalesList);
             } catch (Exception exception) {
                 responseBodyMessage = exception.getMessage();
                 log.error(TAG, responseBodyMessage);

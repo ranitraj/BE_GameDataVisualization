@@ -14,14 +14,14 @@ public class FeatureConfig {
     CommandLineRunner commandLineRunner(FeatureListRepository featureListRepository) {
         return args -> {
             Feature sunburstChart = new Feature(
-                    "Which video game genres are the most popular and how do their sales vary across different regions?",
-                    "Visualized using a Sunburst chart to show the distribution of sales by video game genre across different regions.",
+                    "Which video game genres are the most popular?",
+                    "Visualized using a Pie chart distribution to show the popularity of Video games based on their Global sales.",
                     "https://drive.google.com/file/d/10-qwX6VdwztYANwt4HEhACTeUkouHWF2/view?usp=share_link"
             );
 
             Feature barChart = new Feature(
-                    "What are the top-selling video games and how do their sales compare across different platforms and regions?",
-                    "Visualized using a Bar chart or stacked bar chart to compare sales of top-selling video games across different platforms and regions.",
+                    "What are the highest-rated video games?",
+                    "Visualized using a Bar chart or stacked bar chart to compare highest-rated video games based on the User and Critic Scores for games with highest unique ratings count.",
                     "https://drive.google.com/file/d/1u1yJ4xOGZliebpWqkkDTetAVbiOGVUxc/view?usp=share_link"
             );
 

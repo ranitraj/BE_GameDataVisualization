@@ -72,8 +72,27 @@ public class GameSalesConfig {
 
             );
 
+            GameSales gameSales4 = new GameSales(
+                    "FIFA 16",
+                    "PC",
+                    2015,
+                    "Sports",
+                    "Electronic Arts",
+                    1.12f,
+                    6.12f,
+                    0.06f,
+                    1.28f,
+                    8.57f,
+                    82f,
+                    42f,
+                    4.3f,
+                    896,
+                    "EA Sports",
+                    "E"
+            );
+
             gameSalesRepository.saveAll(
-                    List.of(gameSales1, gameSales2, gameSales3)
+                    List.of(gameSales1, gameSales2, gameSales3, gameSales4)
             );
         };
 
