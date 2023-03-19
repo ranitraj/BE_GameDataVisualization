@@ -4,11 +4,13 @@ import com.videogame.gamesales.service.GameSalesService;
 import com.videogame.gamesales.utils.ApiUrls;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = ApiUrls.API_GAME_SALES_CONTROLLER)
 public class GamesSalesController {
     private final GameSalesService gameSalesService;
