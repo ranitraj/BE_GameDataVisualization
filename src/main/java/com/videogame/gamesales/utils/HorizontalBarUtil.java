@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 @Slf4j
 public class HorizontalBarUtil {
@@ -16,13 +16,13 @@ public class HorizontalBarUtil {
         String responseBodyMessage;
 
         try {
-            HashMap<String, Integer> publishedGameCountHashMap = getpublishedGameCountHashMap(gameSalesList);
-            List<String> publisherNameList = new ArrayList<>(publishedGameCountHashMap.keySet());
-            List<Integer> gamesCountList = new ArrayList<>(publishedGameCountHashMap.values());
+            TreeMap<String, Integer> publishedGameCountTreeMap = getPublishedGameCountHashMap(gameSalesList);
+            List<String> publisherNameList = new ArrayList<>(publishedGameCountTreeMap.keySet());
+            List<Integer> gamesCountList = new ArrayList<>(publishedGameCountTreeMap.values());
             HorizontalBar horizontalBar = new HorizontalBar(
                     "bar",
-                    gamesCountList,
-                    publisherNameList,
+                    gamesCountList.subList(0, 10),
+                    publisherNameList.subList(0, 10),
                     "h"
             );
 
@@ -34,8 +34,8 @@ public class HorizontalBarUtil {
         }
     }
 
-    private static HashMap<String, Integer> getpublishedGameCountHashMap(List<GameSales> gameSalesList) {
-        HashMap<String, Integer> publishedGameCountHashMap = new HashMap<>();
+    private static TreeMap<String, Integer> getPublishedGameCountHashMap(List<GameSales> gameSalesList) {
+        TreeMap<String, Integer> publishedGameCountHashMap = new TreeMap<>();
         for (GameSales curGame : gameSalesList) {
             if (curGame.getPublisher() != null) {
                 if (!publishedGameCountHashMap.containsKey(curGame.getPublisher())) {

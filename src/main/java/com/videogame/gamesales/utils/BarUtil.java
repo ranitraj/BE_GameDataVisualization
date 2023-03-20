@@ -23,6 +23,7 @@ public class BarUtil {
                     List.of("User Score", "Critic Score")
             );
 
+            int counter = 10;
             for (Map.Entry<String, List<Float>> entry : higestRatedGameHashMap.entrySet()) {
                 String curKey = entry.getKey();
                 List<Float> curValue = entry.getValue();
@@ -32,7 +33,11 @@ public class BarUtil {
                         curKey,
                         "bar"
                 );
-                outputList.add(curBar);
+
+                counter--;
+                if (counter > 0) {
+                    outputList.add(curBar);
+                }
             }
 
             return ResponseEntity.ok(outputList);
