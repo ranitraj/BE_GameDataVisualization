@@ -3,6 +3,7 @@ package com.videogame.gamesales.service;
 import com.videogame.gamesales.model.GameSales;
 import com.videogame.gamesales.repository.GameSalesRepository;
 import com.videogame.gamesales.utils.BarUtil;
+import com.videogame.gamesales.utils.HorizontalBarUtil;
 import com.videogame.gamesales.utils.LineUtil;
 import com.videogame.gamesales.utils.PieUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -92,6 +93,25 @@ public class GameSalesService {
         } else {
             try {
                 return LineUtil.formatLineData(gameSalesList);
+            } catch (Exception exception) {
+                responseBodyMessage = exception.getMessage();
+                log.error(TAG, responseBodyMessage);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBodyMessage);
+            }
+        }
+    }
+
+    public ResponseEntity<?> returnHorizontalBarChart() {
+        String responseBodyMessage;
+        List<GameSales> gameSalesList = getAllGameSalesData();
+
+        if (gameSalesList.size() == 0) {
+            responseBodyMessage = "No data retrieved data for horizontalBarChart API: Either no Data or Bad Query Grammar";
+            log.debug(TAG, responseBodyMessage);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseBodyMessage);
+        } else {
+            try {
+                return HorizontalBarUtil.formatHorizontalBarData(gameSalesList);
             } catch (Exception exception) {
                 responseBodyMessage = exception.getMessage();
                 log.error(TAG, responseBodyMessage);

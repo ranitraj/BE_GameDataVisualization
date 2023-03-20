@@ -18,9 +18,9 @@ public class LineUtil {
             List<TreeMap<Integer, Float>> platformWiseYearSalesList = getPlatformWiseYearSalesList(gameSalesList);
 
             for (int i = 0; i < platformWiseYearSalesList.size(); i++) {
-                TreeMap<Integer, Float> curPlatformHashMap = platformWiseYearSalesList.get(i);
-                List<Integer> yearList = new ArrayList<>(curPlatformHashMap.keySet());
-                List<Float> globalSalesList = new ArrayList<>(curPlatformHashMap.values());
+                TreeMap<Integer, Float> curPlatformTreeMap = platformWiseYearSalesList.get(i);
+                List<Integer> yearList = new ArrayList<>(curPlatformTreeMap.keySet());
+                List<Float> globalSalesList = new ArrayList<>(curPlatformTreeMap.values());
 
                 Line curLine = new Line(
                         yearList,

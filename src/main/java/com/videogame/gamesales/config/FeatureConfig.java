@@ -32,8 +32,8 @@ public class FeatureConfig {
             );
 
             Feature scatterChart = new Feature(
-                    "What is the correlation between critic scores, user scores, and sales?",
-                    "Visualized using a Scatter plot to show the correlation between critic scores, user scores, and sales.",
+                    "What is the Number of games developed by various publishers?",
+                    "Visualized using a Horizontal Bar Chart to show the count of games developed by each Publisher over the years.",
                     "https://drive.google.com/file/d/1JP3FZlUlvYkPy4sr69Ixiw4Bm6hnBICQ/view?usp=share_link"
             );
 
