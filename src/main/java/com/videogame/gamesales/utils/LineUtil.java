@@ -39,6 +39,11 @@ public class LineUtil {
         }
     }
 
+    /**
+     * Returns a list of treeMap which contains years in a sortedOrder as the key of the tree-map & corresponding values signify the sales
+     * @param gameSalesList - queried data from Database
+     * @return list of treeMap
+     */
     private static List<TreeMap<Integer, Float>> getPlatformWiseYearSalesList(List<GameSales> gameSalesList) {
         TreeMap<Integer, Float> pcSalesTreeMap = new TreeMap<>();
         TreeMap<Integer, Float> psSalesTreeMap = new TreeMap<>();
@@ -81,6 +86,11 @@ public class LineUtil {
         return new ArrayList<>(List.of(pcSalesTreeMap, psSalesTreeMap, xboxSalesTreeMap, nintendoSalesTreeMap));
     }
 
+    /**
+     * Returns the platform name based on index
+     * @param counter - Position of item in list
+     * @return platformName
+     */
     private static String returnPlatformName(int counter) {
         String platformName;
         if (counter == 0) {

@@ -35,6 +35,7 @@ public class BarUtil {
                 );
 
                 counter--;
+                // Return 10 items only
                 if (counter > 0) {
                     outputList.add(curBar);
                 }
@@ -48,6 +49,11 @@ public class BarUtil {
         }
     }
 
+    /**
+     * Returns a hashMap which contains highest-rated games mapped to it's corresponding list of user and critic scores
+     * @param gameSalesList - queried data from Database
+     * @return hashMap
+     */
     private static HashMap<String, List<Float>> getHighestRatedGamesHashMap(List<GameSales> gameSalesList) {
         HashMap<String, List<Float>> higestRatedGameHashMap = new HashMap<>();
         for (GameSales curGame : gameSalesList) {

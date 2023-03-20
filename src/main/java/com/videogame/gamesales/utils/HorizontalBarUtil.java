@@ -34,6 +34,11 @@ public class HorizontalBarUtil {
         }
     }
 
+    /**
+     * Returns a treeMap which contains published games count per publisher
+     * @param gameSalesList - queried data from Database
+     * @return treeMap
+     */
     private static TreeMap<String, Integer> getPublishedGameCountHashMap(List<GameSales> gameSalesList) {
         TreeMap<String, Integer> publishedGameCountHashMap = new TreeMap<>();
         for (GameSales curGame : gameSalesList) {

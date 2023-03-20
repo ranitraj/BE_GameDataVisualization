@@ -31,6 +31,11 @@ public class PieUtil {
         }
     }
 
+    /**
+     * Returns a hashMap which contains all unique game genres mapped to it's corresponding global sales
+     * @param gameSalesList - queried data from Database
+     * @return hashMap
+     */
     private static HashMap<String, Integer> getAllGenreWiseSales(List<GameSales> gameSalesList) {
         HashMap<String, Integer> genreWiseSalesHashMap = new HashMap<>();
         for (GameSales curGame : gameSalesList) {
