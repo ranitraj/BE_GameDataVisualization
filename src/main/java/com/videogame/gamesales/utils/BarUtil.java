@@ -48,7 +48,7 @@ public class BarUtil {
         for (GameSales curGame : gameSalesList) {
             if (curGame.getUserScore() != null && curGame.getCriticScore() != null) {
                 if (!higestRatedGameHashMap.containsKey(curGame.getName())) {
-                    higestRatedGameHashMap.put(curGame.getName(), List.of(curGame.getUserScore(), curGame.getCriticScore()));
+                    higestRatedGameHashMap.put(curGame.getName(), List.of(curGame.getUserScore(), curGame.getCriticScore()/10f));
                 }
             }
         }

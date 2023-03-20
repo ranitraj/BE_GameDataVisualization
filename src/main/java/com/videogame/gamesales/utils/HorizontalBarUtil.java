@@ -1,7 +1,6 @@
 package com.videogame.gamesales.utils;
 
 import com.videogame.gamesales.model.GameSales;
-import com.videogame.gamesales.model.response.Bar;
 import com.videogame.gamesales.model.response.HorizontalBar;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
