@@ -29,4 +29,9 @@ public class GamesSalesController {
     public ResponseEntity<?> returnBarChart() {
         return gameSalesService.returnBarChart();
     }
+
+    @GetMapping(value = ApiUrls.API_LINE_CHART)
+    public ResponseEntity<?> returnLineChart() {
+        return gameSalesService.returnLineChart();
+    }
 }

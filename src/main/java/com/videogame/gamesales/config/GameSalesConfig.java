@@ -18,7 +18,7 @@ public class GameSalesConfig {
                     "Wii Sports",
                     "Wii",
                     2006,
-                    "Sports",
+                    "Fantasy",
                     "Nintendo",
                     41.36f,
                     28.96f,
@@ -54,7 +54,7 @@ public class GameSalesConfig {
 
             GameSales gameSales3 = new GameSales(
                     "Final Fantasy X",
-                    "PS2",
+                    "PS4",
                     2001,
                     "Role-Playing",
                     "Sony Computer Entertainment",
@@ -91,8 +91,48 @@ public class GameSalesConfig {
                     "E"
             );
 
+
+            GameSales gameSales5 = new GameSales(
+                    "FIFA 18",
+                    "XOne",
+                    2016,
+                    "Sports",
+                    "Electronic Arts",
+                    1.12f,
+                    6.12f,
+                    0.06f,
+                    1.28f,
+                    18.57f,
+                    60f,
+                    42f,
+                    4.7f,
+                    896,
+                    "EA Sports",
+                    "E"
+            );
+
+            GameSales gameSales6 = new GameSales(
+                    "Final Fantasy XV",
+                    "PS4",
+                    2016,
+                    "Role-Playing",
+                    "Sony Computer Entertainment",
+                    2.91f,
+                    2.07f,
+                    2.73f,
+                    0.33f,
+                    8.05f,
+                    94f,
+                    53f,
+                    8.5f,
+                    1056,
+                    "SquareSoft",
+                    "T"
+
+            );
+
             gameSalesRepository.saveAll(
-                    List.of(gameSales1, gameSales2, gameSales3, gameSales4)
+                    List.of(gameSales1, gameSales2, gameSales3, gameSales4, gameSales5, gameSales6)
             );
         };
 
